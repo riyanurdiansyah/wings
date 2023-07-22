@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "162019010208",
+    "project_id": "wings-mobile-2b8bb",
+    "storage_bucket": "wings-mobile-2b8bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162019010208:android:d879a16059dc2a39e50bc5",
+        "android_client_info": {
+          "package_name": "com.example.wings_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162019010208-unoi3sqodquvphjc3hfbsr15eemh2jft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClPni9hEiVot-1Ayweo4AAkoR9fpIx_pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162019010208-unoi3sqodquvphjc3hfbsr15eemh2jft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
