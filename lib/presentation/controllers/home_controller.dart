@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -94,6 +95,7 @@ class HomeController extends GetxController {
     }).toList();
     final body = {
       "uid": uid,
+      "userId": FirebaseAuth.instance.currentUser!.uid,
       "items": listJson,
       "createdAt": DateTime.now().toIso8601String(),
     };
@@ -104,6 +106,8 @@ class HomeController extends GetxController {
           .showSnackBar(const SnackBar(content: Text("Gagal membuat order")));
     }, (data) {
       carts.clear();
+      total.value = 0;
+      Get.back();
       ScaffoldMessenger.of(globalKey.currentContext!).showSnackBar(
           const SnackBar(content: Text("Berhasil membuat order")));
     });

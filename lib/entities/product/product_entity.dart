@@ -11,6 +11,7 @@ class ProductEntity with _$ProductEntity {
     required String currency,
     required int discount,
     required int price,
+    @Default(0) int qty,
     required String productName,
     required String unit,
   }) = _ProductEntity;

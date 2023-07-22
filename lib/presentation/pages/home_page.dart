@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wings_mobile/presentation/controllers/home_controller.dart';
 import 'package:wings_mobile/presentation/pages/cart_page.dart';
+import 'package:wings_mobile/presentation/pages/history_page.dart';
 
 import 'widgets/product_card.dart';
 
@@ -66,6 +67,13 @@ class HomePage extends StatelessWidget {
             ),
           );
         },
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+        child: ElevatedButton(
+          onPressed: () => Get.to(() => HistoryPage()),
+          child: const Text("Lihat History"),
+        ),
       ),
     );
   }

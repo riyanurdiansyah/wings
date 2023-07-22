@@ -84,7 +84,7 @@ class ProductCheckout extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            )
           ],
         ),
       ],

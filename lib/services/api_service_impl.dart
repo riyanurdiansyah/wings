@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wings_mobile/core/custom_error.dart';
+import 'package:wings_mobile/entities/history/history_entity.dart';
 import 'package:wings_mobile/entities/product/product_entity.dart';
 
 import '../entities/user/user_entity.dart';
@@ -69,6 +70,24 @@ class ApiServiceImpl implements ApiService {
           .doc(body["uid"])
           .set(body)
           .then((value) => const Right(true));
+    } catch (e) {
+      return Left(CustomError(400, e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<CustomError, List<HistoryEntity>>> getHistoryById(
+      String id) async {
+    List<HistoryEntity> histories = [];
+    try {
+      final response = await FirebaseFirestore.instance
+          .collection("order")
+          .where("userId", isEqualTo: id)
+          .get();
+      for (int i = 0; i < response.docs.length; i++) {
+        histories.add(HistoryEntity.fromJson(response.docs[i].data()));
+      }
+      return Right(histories);
     } catch (e) {
       return Left(CustomError(400, e.toString()));
     }

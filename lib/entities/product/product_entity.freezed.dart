@@ -25,6 +25,7 @@ mixin _$ProductEntity {
   String get currency => throw _privateConstructorUsedError;
   int get discount => throw _privateConstructorUsedError;
   int get price => throw _privateConstructorUsedError;
+  int get qty => throw _privateConstructorUsedError;
   String get productName => throw _privateConstructorUsedError;
   String get unit => throw _privateConstructorUsedError;
 
@@ -46,6 +47,7 @@ abstract class $ProductEntityCopyWith<$Res> {
       String currency,
       int discount,
       int price,
+      int qty,
       String productName,
       String unit});
 }
@@ -68,6 +70,7 @@ class _$ProductEntityCopyWithImpl<$Res, $Val extends ProductEntity>
     Object? currency = null,
     Object? discount = null,
     Object? price = null,
+    Object? qty = null,
     Object? productName = null,
     Object? unit = null,
   }) {
@@ -91,6 +94,10 @@ class _$ProductEntityCopyWithImpl<$Res, $Val extends ProductEntity>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as int,
+      qty: null == qty
+          ? _value.qty
+          : qty // ignore: cast_nullable_to_non_nullable
               as int,
       productName: null == productName
           ? _value.productName
@@ -118,6 +125,7 @@ abstract class _$$_ProductEntityCopyWith<$Res>
       String currency,
       int discount,
       int price,
+      int qty,
       String productName,
       String unit});
 }
@@ -138,6 +146,7 @@ class __$$_ProductEntityCopyWithImpl<$Res>
     Object? currency = null,
     Object? discount = null,
     Object? price = null,
+    Object? qty = null,
     Object? productName = null,
     Object? unit = null,
   }) {
@@ -162,6 +171,10 @@ class __$$_ProductEntityCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as int,
+      qty: null == qty
+          ? _value.qty
+          : qty // ignore: cast_nullable_to_non_nullable
+              as int,
       productName: null == productName
           ? _value.productName
           : productName // ignore: cast_nullable_to_non_nullable
@@ -183,6 +196,7 @@ class _$_ProductEntity implements _ProductEntity {
       required this.currency,
       required this.discount,
       required this.price,
+      this.qty = 0,
       required this.productName,
       required this.unit});
 
@@ -200,13 +214,16 @@ class _$_ProductEntity implements _ProductEntity {
   @override
   final int price;
   @override
+  @JsonKey()
+  final int qty;
+  @override
   final String productName;
   @override
   final String unit;
 
   @override
   String toString() {
-    return 'ProductEntity(productCode: $productCode, dimension: $dimension, currency: $currency, discount: $discount, price: $price, productName: $productName, unit: $unit)';
+    return 'ProductEntity(productCode: $productCode, dimension: $dimension, currency: $currency, discount: $discount, price: $price, qty: $qty, productName: $productName, unit: $unit)';
   }
 
   @override
@@ -223,6 +240,7 @@ class _$_ProductEntity implements _ProductEntity {
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
             (identical(other.price, price) || other.price == price) &&
+            (identical(other.qty, qty) || other.qty == qty) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
             (identical(other.unit, unit) || other.unit == unit));
@@ -231,7 +249,7 @@ class _$_ProductEntity implements _ProductEntity {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, productCode, dimension, currency,
-      discount, price, productName, unit);
+      discount, price, qty, productName, unit);
 
   @JsonKey(ignore: true)
   @override
@@ -254,6 +272,7 @@ abstract class _ProductEntity implements ProductEntity {
       required final String currency,
       required final int discount,
       required final int price,
+      final int qty,
       required final String productName,
       required final String unit}) = _$_ProductEntity;
 
@@ -270,6 +289,8 @@ abstract class _ProductEntity implements ProductEntity {
   int get discount;
   @override
   int get price;
+  @override
+  int get qty;
   @override
   String get productName;
   @override

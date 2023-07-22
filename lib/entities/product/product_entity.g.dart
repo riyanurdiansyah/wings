@@ -13,6 +13,7 @@ _$_ProductEntity _$$_ProductEntityFromJson(Map<String, dynamic> json) =>
       currency: json['currency'] as String,
       discount: json['discount'] as int,
       price: json['price'] as int,
+      qty: json['qty'] as int? ?? 0,
       productName: json['productName'] as String,
       unit: json['unit'] as String,
     );
@@ -24,6 +25,7 @@ Map<String, dynamic> _$$_ProductEntityToJson(_$_ProductEntity instance) =>
       'currency': instance.currency,
       'discount': instance.discount,
       'price': instance.price,
+      'qty': instance.qty,
       'productName': instance.productName,
       'unit': instance.unit,
     };
